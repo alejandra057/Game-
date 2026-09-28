@@ -39,6 +39,12 @@ Formato basado en Keep a Changelog y Semantic Versioning.
 - Menú de pausa con Continuar, Menú principal, Salir
 - Pausa con Esc, libera el cursor y detiene el tiempo
 - Scripts MainMenuController, GameHUDController, PauseMenuController
+- Interfaz IInteractable (contrato para objetos interactuables)
+- Script PlayerInteractor (raycast + detección + input E)
+- Script Terminal (objeto interactuable de prueba)
+- Prompt de interacción dinámico en el HUD
+- Origen del raycast desde Main Camera
+- Rango de interacción de 3 metros
 
 ### Modificado
 - PlayerMovement.cs reescrito para usar los ejes camForward y camRight
@@ -46,5 +52,6 @@ Formato basado en Keep a Changelog y Semantic Versioning.
 - Raycast de suelo ahora parte desde los pies del jugador (no desde el centro)
 - groundCheckDistance ajustado a 0.3
 - Dev_Room_01 ahora carga desde el menú principal
+- GameHUDController.ShowInteractionPrompt ahora acepta texto dinámico
 
 
