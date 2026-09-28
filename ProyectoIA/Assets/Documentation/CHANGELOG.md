@@ -30,7 +30,21 @@ Formato basado en Keep a Changelog y Semantic Versioning.
 - Movimiento relativo a la cámara (el jugador se mueve hacia donde mira la cámara)
 - Referencia cameraTransform en PlayerMovement (inyección por Inspector)
 - Normalización de vectores de movimiento horizontal
+- Salto funcional con Space
+- Sprint con Shift (x2 velocidad)
+- Camera Collision (SphereCast)
+- Escena MainMenu con botones Jugar, Opciones, Salir
+- Escena MainMenu añadida a Build Settings (índice 0)
+- HUD de juego con StatusText y InteractionPrompt (oculto por defecto)
+- Menú de pausa con Continuar, Menú principal, Salir
+- Pausa con Esc, libera el cursor y detiene el tiempo
+- Scripts MainMenuController, GameHUDController, PauseMenuController
 
 ### Modificado
 - PlayerMovement.cs reescrito para usar los ejes camForward y camRight
 - rotationSpeed aumentado a 15 para giros más ágiles
+- Raycast de suelo ahora parte desde los pies del jugador (no desde el centro)
+- groundCheckDistance ajustado a 0.3
+- Dev_Room_01 ahora carga desde el menú principal
+
+

@@ -64,3 +64,19 @@ Assets/
 ### Salto
 - Fuerza: 5 (ForceMode.Impulse)
 - Solo si isGrounded es True
+
+### Sistema de UI
+- Framework: Unity UI (uGUI) + TextMeshPro
+- Resolución de referencia: 1920x1080
+- Escenas: MainMenu, Dev_Room_01
+- Canvas principales: Canvas (MainMenu), GameHUD (juego)
+
+### Scripts de UI
+- MainMenuController.cs → botones del menú principal
+- GameHUDController.cs → statusText y prompt de interacción
+- PauseMenuController.cs → pausa con Time.timeScale = 0
+
+### Convenciones
+- Botones: Btn_Acción (Btn_Play, Btn_Quit)
+- Canvas: [Escena]HUD, [Escena]Menu
+- Textos: siempre TextMeshPro (no Text legacy)
