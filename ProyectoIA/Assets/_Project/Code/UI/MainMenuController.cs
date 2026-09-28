@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuController : MonoBehaviour
 {
     [Header("Escenas")]
-    [SerializeField] private string gameSceneName = "Dev_Room_01";
+    [SerializeField] private string gameSceneName = "Level_01_Street";
 
     public void OnPlayClicked()
     {

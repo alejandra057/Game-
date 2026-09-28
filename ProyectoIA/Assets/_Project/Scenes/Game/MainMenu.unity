@@ -1287,7 +1287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96f3c8d89bf12424f9b3a625da534770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuController
-  gameSceneName: Dev_Room_01
+  gameSceneName: Level_01_Street
 --- !u!1 &2002162763
 GameObject:
   m_ObjectHideFlags: 0

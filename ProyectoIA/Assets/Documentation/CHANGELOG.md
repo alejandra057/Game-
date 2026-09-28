@@ -54,4 +54,32 @@ Formato basado en Keep a Changelog y Semantic Versioning.
 - Dev_Room_01 ahora carga desde el menú principal
 - GameHUDController.ShowInteractionPrompt ahora acepta texto dinámico
 
+## [0.0.9] — 2026-09-28
 
+### Añadido
+- Escena Level_01_Street (calle + edificio, en construcción)
+- Ground_Calle: plano de 50x50 m
+- Objeto padre World para organizar el escenario
+- Player copiado como prefab en la nueva escena
+- GameHUD copiado a Level_01_Street
+
+### Modificado
+- MainMenuController ahora carga Level_01_Street
+- Build Settings: MainMenu (0), Level_01_Street (1), Dev_Room_01 (2)
+
+## [0.0.9] — 2026-09-28
+
+### Añadido
+- Escena Level_01_Street (bloqueo inicial)
+- Ground_Calle: plano de 50x50 m
+- Estructura World > Ground_Calle
+- Player copiado a Level_01_Street
+- GameHUD con PauseMenu funcional
+
+### Modificado
+- MainMenuController carga Level_01_Street
+- Build Settings: MainMenu (0), Level_01_Street (1), Dev_Room_01 (2)
+
+### Corregido
+- EventSystem de Level_01_Street: cambiado a Input System UI Input Module
+- Botones del PauseMenu ahora responden correctamente

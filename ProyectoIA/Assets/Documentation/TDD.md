@@ -80,3 +80,31 @@ Assets/
 - Botones: Btn_Acción (Btn_Play, Btn_Quit)
 - Canvas: [Escena]HUD, [Escena]Menu
 - Textos: siempre TextMeshPro (no Text legacy)
+
+
+### Sistema de interacción
+- Interfaz: IInteractable (GetInteractionPrompt, Interact, CanInteract)
+- Detección: raycast desde Main Camera, rango 3m
+- Input: acción "Interact" (E / Button North)
+- Prompt: GameHUDController.ShowInteractionPrompt(bool, string)
+- Primer interactuable: Terminal.cs
+
+### Patrón de diseño
+- Strategy / Interface: cada objeto interactuable implementa su propia lógica
+- Escalable: añadir nuevos interactuables = implementar IInteractable
+
+### Nivel 1 — Level_01_Street
+- Escena: Assets/_Project/Scenes/Game/Level_01_Street.unity
+- Suelo base: 50x50 m (Plane escalado)
+- Estructura jerárquica: World > Ground_Calle
+- Player: prefab reutilizado
+- HUD: GameHUD copiado de Dev_Room_01
+
+### Flujo de escenas
+- MainMenu → Level_01_Street (botón Jugar)
+- Level_01_Street → MainMenu (botón Salir en PauseMenu)
+
+### EventSystem en escenas con UI
+- Requerido: Input System UI Input Module (no Standalone Input Module)
+- Actions Asset: InputSystem_Actions
+- Motivo: el proyecto usa el nuevo Input System
