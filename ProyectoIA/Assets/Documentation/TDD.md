@@ -55,3 +55,12 @@ Assets/
 | 2026-09-28  | Separar _Project de ThirdParty          | Claridad legal y organizativa |
 
 
+### Detección de suelo
+- Origen del raycast: transform.position + Vector3.down * 0.9f
+- Distancia: 0.3 m
+- Ground Mask: ~0 (todas las capas)
+- Debug.DrawRay en desarrollo: verde (suelo) / rojo (aire)
+
+### Salto
+- Fuerza: 5 (ForceMode.Impulse)
+- Solo si isGrounded es True
