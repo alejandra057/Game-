@@ -22,3 +22,15 @@ Formato basado en Keep a Changelog y Semantic Versioning.
 - Cámara en tercera persona
 - Reemplazar cápsula por modelo de Blender
 - Sistema de desafíos
+
+
+## [0.0.3] — 2026-09-28
+
+### Añadido
+- Movimiento relativo a la cámara (el jugador se mueve hacia donde mira la cámara)
+- Referencia cameraTransform en PlayerMovement (inyección por Inspector)
+- Normalización de vectores de movimiento horizontal
+
+### Modificado
+- PlayerMovement.cs reescrito para usar los ejes camForward y camRight
+- rotationSpeed aumentado a 15 para giros más ágiles

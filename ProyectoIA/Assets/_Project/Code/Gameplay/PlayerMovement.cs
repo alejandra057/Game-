@@ -6,7 +6,10 @@ public class PlayerMovement : MonoBehaviour
 {
     [Header("Movimiento")]
     [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float rotationSpeed = 10f;
+    [SerializeField] private float rotationSpeed = 15f;
+
+    [Header("Referencias")]
+    [SerializeField] private Transform cameraTransform;
 
     private Rigidbody rb;
     private Vector2 moveInput;
@@ -39,15 +42,29 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector3 direction = new Vector3(moveInput.x, 0f, moveInput.y);
+        if (moveInput.sqrMagnitude < 0.01f) return;
+        if (cameraTransform == null) return;
 
-        if (direction.sqrMagnitude > 0.01f)
-        {
-            Vector3 move = direction.normalized * moveSpeed * Time.fixedDeltaTime;
-            rb.MovePosition(rb.position + move);
+        // 1. Dirección base según la cámara
+        Vector3 camForward = cameraTransform.forward;
+        Vector3 camRight = cameraTransform.right;
 
-            Quaternion targetRotation = Quaternion.LookRotation(direction);
-            rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
-        }
+        // 2. Ignorar la inclinación (pitch) — solo nos interesa el plano horizontal
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        // 3. Combinar input con ejes de la cámara
+        Vector3 direction = camForward * moveInput.y + camRight * moveInput.x;
+        direction.Normalize();
+
+        // 4. Mover
+        Vector3 move = direction * moveSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + move);
+
+        // 5. Rotar el personaje hacia donde se mueve
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        rb.rotation = Quaternion.Slerp(rb.rotation, targetRotation, rotationSpeed * Time.fixedDeltaTime);
     }
 }
